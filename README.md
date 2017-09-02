@@ -1,1 +1,1 @@
-"# ldif-compare" 
+# ldif-compare
