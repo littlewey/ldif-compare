@@ -5,7 +5,7 @@ import os
 from dictdiffer import diff, patch, swap, revert
 from config import filterList
 
-from flask_table import Table, Col
+#from flask_table import Table, Col
 
 '''
 TEST local File
