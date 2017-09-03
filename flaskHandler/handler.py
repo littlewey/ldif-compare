@@ -84,7 +84,7 @@ def ldifCompareHandler(aFile,bFile):
     '''
     Build CSV file Header, which is actually the first line
     '''
-    outputCSV =                     "result"     + "," + "dn"                  + "," + "first File"            + "," + "second File"
+    outputCSV = "result" + "," + "dn without nodename" + "," + "Value in 1st File" + "," + "Value in 2nd File"
 
     '''
     Build items = [] for render table
@@ -118,5 +118,6 @@ def ldifCompareHandler(aFile,bFile):
         outputFileP.write(outputCSV)
     TEST END
     '''
-    return items
+    output = {"table":items , "csv":outputCSV}
+    return output
 

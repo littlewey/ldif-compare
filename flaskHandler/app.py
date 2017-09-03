@@ -1,6 +1,7 @@
 #!env/bin/python
 
-from flask import Flask, render_template , url_for , request
+from flask import Flask, render_template , url_for , request , make_response
+from werkzeug.utils import secure_filename
 from handler import ldifCompareHandler
 app = Flask(__name__)
 
@@ -14,6 +15,12 @@ def compare():
     aFile = request.files['aFile']
     bFile = request.files['bFile']
     #return ldifCompareHandler(aFile,bFile)
-    return render_template("result.html",
-                           items = ldifCompareHandler(aFile,bFile)
-                           )
+    if len(request.form.getlist('ifCSV_Format')) == 1 :
+        response = make_response(ldifCompareHandler(aFile,bFile)["csv"])
+        response.headers['Content-type'] = 'text/txt' 
+        response.headers['Content-Disposition'] = "attachment;filename=LDIF_compare_result.csv" 
+    else:
+        response = render_template("result.html",
+                               items = ldifCompareHandler(aFile,bFile)["table"]
+                               )
+    return response
