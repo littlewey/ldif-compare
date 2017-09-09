@@ -1,0 +1,27 @@
+  <div class="row">
+    <div class="col s12">
+
+      <table class="striped">
+
+        
+          <tr>
+              <th>Result</th>
+              <th>dn Without "nodeName"</th>
+              <th>Value in First File</th>
+              <th>Value in Second File</th>
+          </tr>
+        
+        <tbody>
+          {% for item in items %}
+          <TR>
+             <TD>{{item.result}}</TD>
+             <TD>{{item.dn}}</TD>
+             <TD>{{item.aFileValue}}</TD>
+             <TD>{{item.bFileValue}}</TD>
+          </TR>
+          {% endfor %}
+        <tbody>
+      </table>
+
+    </div>
+  </div>

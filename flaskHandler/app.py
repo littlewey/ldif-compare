@@ -21,6 +21,6 @@ def compare():
         response.headers['Content-Disposition'] = "attachment;filename=LDIF_compare_result.csv" 
     else:
         response = render_template("result.html",
-                               items = ldifCompareHandler(aFile,bFile)["table"]
+                               data = ldifCompareHandler(aFile,bFile)["data"]
                                )
     return response

@@ -4,6 +4,7 @@ import string
 import os
 from dictdiffer import diff, patch, swap, revert
 from config import filterList
+from difflib import Differ
 
 #from flask_table import Table, Col
 
@@ -22,6 +23,9 @@ TEST local File End
 outputFilePath = 'output.csv'
 
 def filterOut(inputString,listToFilterOut):
+    # avoide # in middle of a line
+    inputString = inputString.replace("#","\n#")
+    # avoide # in middle of a line
     inputStringList = inputString.split("\n")
     outputString = str()
     for line in inputStringList:
@@ -38,7 +42,7 @@ def parseLDIF(inputFile):
         keyAndValue = dn.strip().split("\n") 
         # Remove nodeName
         key = keyAndValue[0].split(",nodeName")[0]
-        value = ", ".join(keyAndValue[1:])
+        value = ", ".join(keyAndValue[1:]) 
         dnTable[key] = value
     '''
     output is a dict with key :
@@ -72,6 +76,42 @@ def buildTableItem(resultRow):
                 aFileValue = commaAddNewline(resultRow[2]),
                 bFileValue = commaAddNewline(resultRow[3])
                 )
+# compare two values, return diffs
+
+def getDeltaValue(valueA, valueB):
+    valueA = valueA + ","
+    valueB = valueB + ","
+    diffMarkList = list(Differ().compare(valueA, valueB))
+    # test print str(diffMarkList)
+    deltaValueA = str()
+    deltaValueB = str()
+    propertyA = str()
+    propertyB = str()
+    deltaFlag = False
+    for eachChar in diffMarkList:
+        # eachChar[-1] is the current char
+        # eachChar[:1] is the diff mark, + means value from A, - means value from B, space means common part
+        if eachChar[-1] == ",":
+            if deltaFlag:
+                deltaValueA = deltaValueA + propertyA + ","
+                deltaValueB = deltaValueB + propertyB + ","
+            propertyA = ""
+            propertyB = ""
+            deltaFlag = False
+        else:
+            diffState   = eachChar[:1]
+            currentChar = eachChar[-1] 
+            if diffState == " ":
+                propertyA = propertyA + currentChar
+                propertyB = propertyB + currentChar
+            if diffState == "+":
+                propertyA = propertyA + currentChar
+                deltaFlag = True
+            if diffState == "-":
+                propertyB = propertyB + currentChar
+                deltaFlag = True
+    return dict(A = deltaValueA, B = deltaValueB )
+
 
 def ldifCompareHandler(aFile,bFile):
     '''
@@ -89,14 +129,26 @@ def ldifCompareHandler(aFile,bFile):
     '''
     Build items = [] for render table
     '''
+    # items for jinja2 html table
     items = []
+    # data for slicGrid 
+    data = [["Result","DN","Value of 1st File","Value of 2nd File"]]
     for line in compareResult:
         if line[0] == "change":
-            row = buildResultRow("diff",str(line[1]),str(line[2][0]),str(line[2][1]) )
+            # improved result in values, show only delta part 
+            valueA = str(line[2][0])
+            #print "valueA" + valueA
+            valueB = str(line[2][1])
+            #print "valueB" + valueB
+            diffValue = getDeltaValue(valueA,valueB)
+            # improved result in values, show only delta part 
+
+            row = buildResultRow("diff",str(line[1]),diffValue["A"], diffValue["B"])
             appendLine = buildCsvLine(row)
             appendItem = buildTableItem(row)
             outputCSV = outputCSV + appendLine
             items.append(appendItem)
+            data.append(row)
         if line[0] == "add":
             for item in line[2]:
                 row = buildResultRow("leftMiss",str(item[0]) ,"NOTHING HERE",str(item[1]) )
@@ -104,6 +156,7 @@ def ldifCompareHandler(aFile,bFile):
                 appendItem = buildTableItem(row)
                 outputCSV = outputCSV + appendLine
                 items.append(appendItem)
+                data.append(row)
         if line[0] == "remove":
             for item in line[2]:
                 row = buildResultRow("rightMiss",str(item[0]) ,str(item[1]),"NOTHING HERE")
@@ -111,6 +164,7 @@ def ldifCompareHandler(aFile,bFile):
                 appendItem = buildTableItem(row)
                 outputCSV = outputCSV + appendLine
                 items.append(appendItem)
+                data.append(row)
 
     '''
     TEST
@@ -118,6 +172,6 @@ def ldifCompareHandler(aFile,bFile):
         outputFileP.write(outputCSV)
     TEST END
     '''
-    output = {"table":items , "csv":outputCSV}
+    output = {"table":items , "csv":outputCSV, "data":data}
     return output
 

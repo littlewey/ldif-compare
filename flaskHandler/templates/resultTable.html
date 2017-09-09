@@ -1,27 +1,167 @@
-  <div class="row">
+  <div class="card hoverable">
     <div class="col s12">
 
-      <table class="striped">
+      
+      <div id="myGrid" style="width:100%;height:900px;" ></div>
+      
 
-        <thead>
-          <tr>
-              <th>Result</th>
-              <th>dn Without "nodeName"</th>
-              <th>Value in First File</th>
-              <th>Value in Second File</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for item in items %}
-          <TR>
-             <TD>{{item.result}}</TD>
-             <TD>{{item.dn}}</TD>
-             <TD>{{item.aFileValue}}</TD>
-             <TD>{{item.aFileValue}}</TD>
-          </TR>
-          {% endfor %}
-        <tbody>
-      </table>
+
+      <script src="static/js/slickGrid/lib/firebugx.js"></script>
+      <script src="static/js/slickGrid/lib/jquery-1.11.2.min.js"></script>
+      <script src="static/js/slickGrid/lib/jquery-ui-1.11.3.min.js"></script>
+      <script src="static/js/slickGrid/lib/jquery.event.drag-2.3.0.js"></script>
+      <script src="static/js/slickGrid/slick.core.js"></script>
+      <script src="static/js/slickGrid/plugins/slick.autotooltips.js"></script>
+      <script src="static/js/slickGrid/plugins/slick.cellrangedecorator.js"></script>
+      <script src="static/js/slickGrid/plugins/slick.cellrangeselector.js"></script>
+      <script src="static/js/slickGrid/plugins/slick.cellexternalcopymanager.js"></script>
+      <script src="static/js/slickGrid/plugins/slick.cellselectionmodel.js"></script>
+      <script src="static/js/slickGrid/slick.editors.js"></script>
+      <script src="static/js/slickGrid/slick.formatters.js"></script>
+      <script src="static/js/slickGrid/slick.grid.js"></script>
+
+
+
+      <!-- new slickGrid -->
+      <script type="text/javascript">
+        var grid;
+        var data = {{ data|safe }}; ;
+        var indexForItem = 0;
+
+
+        // sample of use of optional get and set functions 
+        // (otherwise the editor is used to serialise the data to a string,
+        // then as a fallback the data value is used as-is)
+        
+        // function getVal(item, columnDef) {
+        //   return item[columnDef.field];
+        // }
+        //
+        // function setVal(item, columnDef, value) {
+        //   item[columnDef.field] = value;
+        // }
+        //
+        // var options = {
+        // ... ,
+        //   dataItemColumnValueExtractor: getVal,
+        //   dataItemColumnValueSetter: setVal
+        // };
+        
+        var options = {
+          editable: true,
+          enableAddRow: true,
+          enableCellNavigation: true,
+          asyncEditorLoading: false,
+          autoEdit: false
+        };
+        var undoRedoBuffer = {
+            commandQueue : [],
+            commandCtr : 0,
+            queueAndExecuteCommand : function(editCommand) {
+              this.commandQueue[this.commandCtr] = editCommand;
+              this.commandCtr++;
+              editCommand.execute();
+            },
+            undo : function() {
+              if (this.commandCtr == 0) { return; }
+              this.commandCtr--;
+              var command = this.commandQueue[this.commandCtr];
+              if (command && Slick.GlobalEditorLock.cancelCurrentEdit()) {
+                command.undo();
+              }
+            },
+            redo : function() {
+              if (this.commandCtr >= this.commandQueue.length) { return; }
+              var command = this.commandQueue[this.commandCtr];
+              this.commandCtr++;
+              if (command && Slick.GlobalEditorLock.cancelCurrentEdit()) {
+                command.execute();
+              }
+            }
+        }
+        // undo shortcut
+        $(document).keydown(function(e)
+        {
+          if (e.which == 90 && (e.ctrlKey || e.metaKey)) {    // CTRL + (shift) + Z
+            if (e.shiftKey){
+              undoRedoBuffer.redo();
+            } else {
+              undoRedoBuffer.undo();
+            }
+          }
+        });
+        var newRowIds = 0;
+        var pluginOptions = {
+          clipboardCommandHandler: function(editCommand){ undoRedoBuffer.queueAndExecuteCommand.call(undoRedoBuffer,editCommand); },
+          readOnlyMode : false,
+          includeHeaderWhenCopying : false,
+          newRowCreator: function(count) {
+            for (var i = 0; i < count; i++) {
+              var item = {
+                id: "newRow_" + newRowIds++
+              }
+              grid.getData().addItem(item);
+            }
+          }
+        };
+        var columns = [
+          {
+            id: "selector",
+            name: "",
+            field: "num",
+            width: 30
+          }
+        ];
+        columns.push({
+          id: 0,
+          name: String.fromCharCode("A".charCodeAt(0) + 0),
+          field: 0,
+          width: 60,
+          editor: Slick.Editors.Text
+        });
+        columns.push({
+          id: 1,
+          name: String.fromCharCode("A".charCodeAt(0) + 1),
+          field: 1,
+          width: 400,
+          editor: Slick.Editors.Text
+        });
+        for (var i = 2; i < 26; i++) {
+          columns.push({
+            id: i,
+            name: String.fromCharCode("A".charCodeAt(0) + i),
+            field: i,
+            width: 500,
+            editor: Slick.Editors.Text
+          });
+        }
+
+
+               
+        $(function () {
+
+          grid = new Slick.Grid("#myGrid", data, columns, options);
+          grid.setSelectionModel(new Slick.CellSelectionModel());
+          grid.registerPlugin(new Slick.AutoTooltips());
+          // set keyboard focus on the grid
+          grid.getCanvasNode().focus();
+          grid.registerPlugin(new Slick.CellExternalCopyManager(pluginOptions));
+          grid.onAddNewRow.subscribe(function (e, args) {
+            var item = args.item;
+            var column = args.column;
+            grid.invalidateRow(data.length);
+            data.push(item);
+            grid.updateRowCount();
+            grid.render();
+          });
+          
+        })
+      </script>
+
+
 
     </div>
   </div>
+
+
+
