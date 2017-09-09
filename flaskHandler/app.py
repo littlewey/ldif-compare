@@ -14,13 +14,10 @@ def index():
 def compare():
     aFile = request.files['aFile']
     bFile = request.files['bFile']
-    #return ldifCompareHandler(aFile,bFile)
     if len(request.form.getlist('ifCSV_Format')) == 1 :
         response = make_response(ldifCompareHandler(aFile,bFile)["csv"])
         response.headers['Content-type'] = 'text/txt' 
         response.headers['Content-Disposition'] = "attachment;filename=LDIF_compare_result.csv" 
     else:
-        response = render_template("result.html",
-                               data = ldifCompareHandler(aFile,bFile)["data"]
-                               )
+        response = render_template("result.html",data = ldifCompareHandler(aFile,bFile)["data"])
     return response

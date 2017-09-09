@@ -17,6 +17,11 @@
         <blockquote class="blue-grey-text text-lighten-3">
           The result will be a table showing differences, with columns as: Compare Result, dn, value of First File and value of Second File.
         </blockquote>
+          <!-- Progress Bar -->
+          <div class="progress" id="progressBar" style="visibility: hidden">
+              <div class="indeterminate"></div>
+          </div>
+          <!-- Progress Bar -->
 
           <form action='/compare' method="post" enctype="multipart/form-data">
 
@@ -45,14 +50,16 @@
               </div>
             </div>
 
-
-          <button class="btn waves-effect waves-light right blue-grey lighten-5 blue-grey-text" type="submit" name="action"> Compare
-            <i class="material-icons blue-grey-text right">send</i>
+          <button class="btn waves-effect waves-light right blue-grey lighten-5 blue-grey-text" type="submit" name="action" onclick="$('#progressBar').css('visibility', 'visible');
+                                                                                                                                     $('#form').submit();"> 
+            Compare<i class="material-icons blue-grey-text right">send</i>
           </button>
 
           </form>
 
 
+
       </div>
+
     </div>
 <!-- </div> -->
