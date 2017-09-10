@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 #!env/bin/python
 import string
 import os
@@ -39,10 +39,10 @@ def parseLDIF(inputFile):
     nodeInformation = inputInDn[1]
     dnTable = dict()
     for dn in inputInDn[2:]:
-        keyAndValue = dn.strip().split("\n") 
+        keyAndValue = dn.strip().split("\n")
         # Remove nodeName
         key = keyAndValue[0].split(",nodeName")[0]
-        value = ", ".join(keyAndValue[1:]) 
+        value = ", ".join(keyAndValue[1:])
         dnTable[key] = value
     '''
     output is a dict with key :
@@ -93,14 +93,15 @@ def getDeltaValue(valueA, valueB):
         # eachChar[:1] is the diff mark, + means value from A, - means value from B, space means common part
         if eachChar[-1] == ",":
             if deltaFlag:
-                deltaValueA = deltaValueA + propertyA + ","
-                deltaValueB = deltaValueB + propertyB + ","
+                # fixing bugs that add a comma even when propertyA or *B is ""
+                deltaValueA = (deltaValueA + propertyA + ",") if propertyA else deltaValueA
+                deltaValueB = (deltaValueB + propertyB + ",") if propertyB else deltaValueB
             propertyA = ""
             propertyB = ""
             deltaFlag = False
         else:
             diffState   = eachChar[:1]
-            currentChar = eachChar[-1] 
+            currentChar = eachChar[-1]
             if diffState == " ":
                 propertyA = propertyA + currentChar
                 propertyB = propertyB + currentChar
@@ -131,17 +132,17 @@ def ldifCompareHandler(aFile,bFile):
     '''
     # items for jinja2 html table
     items = []
-    # data for slicGrid 
+    # data for slicGrid
     data = [["Result","DN","Value of 1st File","Value of 2nd File"]]
     for line in compareResult:
         if line[0] == "change":
-            # improved result in values, show only delta part 
+            # improved result in values, show only delta part
             valueA = str(line[2][0])
             #print "valueA" + valueA
             valueB = str(line[2][1])
             #print "valueB" + valueB
             diffValue = getDeltaValue(valueA,valueB)
-            # improved result in values, show only delta part 
+            # improved result in values, show only delta part
 
             row = buildResultRow("diff",str(line[1]),diffValue["A"], diffValue["B"])
             appendLine = buildCsvLine(row)
