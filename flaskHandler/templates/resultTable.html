@@ -2,10 +2,8 @@
     <div class="col s12">
 
       
-      <div id="myGrid" style="width:100%;height:900px;" ></div>
+      <div id="grid0" style="width:100%;height:900px;" ></div>
       
-
-
       <script src="static/js/slickGrid/lib/firebugx.js"></script>
       <script src="static/js/slickGrid/lib/jquery-1.11.2.min.js"></script>
       <script src="static/js/slickGrid/lib/jquery-ui-1.11.3.min.js"></script>
@@ -19,17 +17,12 @@
       <script src="static/js/slickGrid/slick.editors.js"></script>
       <script src="static/js/slickGrid/slick.formatters.js"></script>
       <script src="static/js/slickGrid/slick.grid.js"></script>
-
-
-
-      <!-- new slickGrid -->
+      <!-- slickGrid -->
       <script type="text/javascript">
         var grid;
         var data = {{ data|safe }}; ;
         var indexForItem = 0;
-
-
-        // sample of use of optional get and set functions 
+        // sample of use of optional get and set functions
         // (otherwise the editor is used to serialise the data to a string,
         // then as a fallback the data value is used as-is)
         
@@ -135,12 +128,9 @@
             editor: Slick.Editors.Text
           });
         }
-
-
                
         $(function () {
-
-          grid = new Slick.Grid("#myGrid", data, columns, options);
+          grid = new Slick.Grid("#grid0", data, columns, options);
           grid.setSelectionModel(new Slick.CellSelectionModel());
           grid.registerPlugin(new Slick.AutoTooltips());
           // set keyboard focus on the grid
@@ -157,9 +147,7 @@
           
         })
       </script>
-
-
-
+      <!-- slickGrid end -->
     </div>
   </div>
 
