@@ -76,6 +76,7 @@ def buildTableItem(resultRow):
                 aFileValue = commaAddNewline(resultRow[2]),
                 bFileValue = commaAddNewline(resultRow[3])
                 )
+
 # compare two values, return diffs
 
 def getDeltaValue(valueA, valueB):
@@ -149,7 +150,7 @@ def ldifCompareHandler(aFile,bFile):
             appendItem = buildTableItem(row)
             outputCSV = outputCSV + appendLine
             items.append(appendItem)
-            data.append(row)
+            data.append([commaAddNewline(eachCell) for eachCell in row])
         if line[0] == "add":
             for item in line[2]:
                 row = buildResultRow("leftMiss",str(item[0]) ,"NOTHING HERE",str(item[1]) )
@@ -157,7 +158,7 @@ def ldifCompareHandler(aFile,bFile):
                 appendItem = buildTableItem(row)
                 outputCSV = outputCSV + appendLine
                 items.append(appendItem)
-                data.append(row)
+                data.append([commaAddNewline(eachCell) for eachCell in row])
         if line[0] == "remove":
             for item in line[2]:
                 row = buildResultRow("rightMiss",str(item[0]) ,str(item[1]),"NOTHING HERE")
@@ -165,7 +166,7 @@ def ldifCompareHandler(aFile,bFile):
                 appendItem = buildTableItem(row)
                 outputCSV = outputCSV + appendLine
                 items.append(appendItem)
-                data.append(row)
+                data.append([commaAddNewline(eachCell) for eachCell in row])
 
     '''
     TEST
