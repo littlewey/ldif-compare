@@ -36,7 +36,7 @@ def parseLDIF(inputFile):
     inputString = inputFile.read().strip()
     inputStringFiltered = filterOut(inputString,filterList)
     inputInDn = inputStringFiltered.split("dn:")
-    nodeInformation = inputInDn[1]
+    #nodeInformation = inputInDn[1]
     dnTable = dict()
     for dn in inputInDn[2:]:
         keyAndValue = dn.strip().split("\n")
@@ -50,7 +50,7 @@ def parseLDIF(inputFile):
                                "dnTable"
     '''
     output = dict()
-    output["nodeInformation"] = nodeInformation
+    #output["nodeInformation"] = nodeInformation
     output["dnTable"] = dnTable
     return output
 
@@ -59,7 +59,11 @@ def removeComma(input):
     remove Comma to enable csv files' column correctly parsed by fucking M$ Excel
     '''
     return input.replace(",","|")
-
+def addQuotation(input):
+    '''
+    remove Comma to enable csv files' column correctly parsed by fucking M$ Excel
+    '''
+    return u'"'+ input + u'"'
 def commaAddNewline(input):
     '''
     remove Comma to enable csv files' column correctly parsed by fucking M$ Excel
@@ -69,7 +73,7 @@ def commaAddNewline(input):
 def buildResultRow(result,dn,aFileValue,bFileValue):
     return [result,dn,aFileValue,bFileValue]
 def buildCsvLine(resultRow):
-    return "\n" + ",".join([removeComma(x) for x in resultRow])
+    return "\n" + ",".join([addQuotation(commaAddNewline(x)) for x in resultRow])
 def buildTableItem(resultRow):
     return dict(result = commaAddNewline(resultRow[0]),
                 dn     = commaAddNewline(resultRow[1]),
