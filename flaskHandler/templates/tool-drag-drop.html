@@ -1,0 +1,84 @@
+
+<!-- <div class="container"> -->
+
+	<script src="static/js/dragdrop.min.js"></script>
+    <script>
+      window.remove = DragDrop('aFileForDrag', {
+        onDrop: function (files, pos) {
+          var names = files.map(function (file) { return file.name })
+          window.alert('onDrop fired! ' + files.length + ' files: ' + names.join(', '))
+          window.files = files
+        }
+      })
+      window.remove = DragDrop('bFileForDrag', {
+        onDrop: function (files, pos) {
+          var names = files.map(function (file) { return file.name })
+          window.alert('onDrop fired! ' + files.length + ' files: ' + names.join(', '))
+          window.files = files
+        }
+      })
+    </script>
+
+    <div class="card hoverable">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="static/images/jeff-sheldon-3220-20percentage.jpg?removeCacheAttemptTime=3">
+      </div>
+      <div class="card-content blue-grey darken-3">
+        <span class="card-title activator blue-grey-text text-lighten-5">Start<i class="material-icons right">compare_arrows</i></span>
+          <!--
+            <p><a href="#">This is a link</a></p>
+          -->
+      </div>
+      <div class="card-reveal blue-grey darken-3">
+
+        <span class="card-title blue-grey-text text-lighten-4">Upload two Files and Compare<i class="material-icons right">close</i></span>
+
+        <blockquote class="blue-grey-text text-lighten-3">
+          The result will be a table showing differences, with columns as: Compare Result, dn, value of First File and value of Second File.
+        </blockquote>
+          <!-- Progress Bar -->
+          <div class="progress" id="progressBar" style="visibility: hidden">
+              <div class="indeterminate"></div>
+          </div>
+          <!-- Progress Bar -->
+
+          <form action='/compare' method="post" enctype="multipart/form-data">
+
+            <p>
+              <input type="checkbox" name="ifCSV_Format" id="ifCSV" class="grey-text lighten-2"/>
+              <label for="ifCSV" class="blue-grey-text text-lighten-2">Download CSV Table as Result?</label>
+            </p>
+
+            <div class="file-field">
+              <div class="btn-large blue-grey lighten-5 pulse tooltipped" data-tooltip="Drag and Drop 1st File on this Box">
+                <span class="blue-grey-text"><i class="material-icons blue-grey-text right">input</i> Drag and Drop file Area </span>
+                <input name="aFile" type="file" id="aFileForDrag">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate " type="text" placeholder=" 1st LDIF File">
+            </div>>
+            </div>
+
+            <div class="file-field">
+              <div class="btn-large blue-grey lighten-5 pulse tooltipped" data-tooltip="Drag and Drop 2nd File on this Box">
+                <span class="blue-grey-text"><i class="material-icons blue-grey-text right">input</i> Drag and Drop file Area</span>
+                <input name="bFile" type="file" id="bFileForDrag">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate " type="text" placeholder=" 2nd LDIF File">
+              </div>
+            </div>
+
+          <button class="btn waves-effect waves-light right blue-grey lighten-5 blue-grey-text" type="submit" name="action" onclick="$('#progressBar').css('visibility', 'visible');
+                                                                                                                                     $('#form').submit();"> 
+            Compare<i class="material-icons blue-grey-text right">send</i>
+          </button>
+
+          </form>
+
+
+
+      </div>
+
+    </div>
+<!-- </div> -->

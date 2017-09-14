@@ -148,28 +148,27 @@ def ldifCompareHandler(aFile,bFile):
             #print "valueB" + valueB
             diffValue = getDeltaValue(valueA,valueB)
             # improved result in values, show only delta part
-
             row = buildResultRow("diff",str(line[1]),diffValue["A"], diffValue["B"])
             appendLine = buildCsvLine(row)
-            appendItem = buildTableItem(row)
+            #appendItem = buildTableItem(row)
             outputCSV = outputCSV + appendLine
-            items.append(appendItem)
+            #items.append(appendItem)
             data.append([commaAddNewline(eachCell) for eachCell in row])
         if line[0] == "add":
             for item in line[2]:
                 row = buildResultRow("leftMiss",str(item[0]) ,"NOTHING HERE",str(item[1]) )
                 appendLine = buildCsvLine(row)
-                appendItem = buildTableItem(row)
+                #appendItem = buildTableItem(row)
                 outputCSV = outputCSV + appendLine
-                items.append(appendItem)
+                #items.append(appendItem)
                 data.append([commaAddNewline(eachCell) for eachCell in row])
         if line[0] == "remove":
             for item in line[2]:
                 row = buildResultRow("rightMiss",str(item[0]) ,str(item[1]),"NOTHING HERE")
                 appendLine = buildCsvLine(row)
-                appendItem = buildTableItem(row)
+                #appendItem = buildTableItem(row)
                 outputCSV = outputCSV + appendLine
-                items.append(appendItem)
+                #items.append(appendItem)
                 data.append([commaAddNewline(eachCell) for eachCell in row])
 
     '''
@@ -178,6 +177,7 @@ def ldifCompareHandler(aFile,bFile):
         outputFileP.write(outputCSV)
     TEST END
     '''
-    output = {"table":items , "csv":outputCSV, "data":data}
+    #output = {"table":items , "csv":outputCSV, "data":data, "nativeAppData":[outputCSV,data]}
+    output = {"csv":outputCSV, "data":data, "guiData":[outputCSV,data]}
     return output
 
