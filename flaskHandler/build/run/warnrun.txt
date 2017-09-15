@@ -1,0 +1,79 @@
+missing module named 'win32com.gen_py' - imported by win32com, c:\users\esiwegu\panbaiducom\cloudstation\project2017\tool_7_parser_comparing\env\lib\site-packages\PyInstaller\loader\rthooks\pyi_rth_win32comgenpy.py
+missing module named pyimod03_importers - imported by c:\users\esiwegu\panbaiducom\cloudstation\project2017\tool_7_parser_comparing\env\lib\site-packages\PyInstaller\loader\rthooks\pyi_rth_pkgres.py
+missing module named resource - imported by posix, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named posix - imported by os, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named _datetime - imported by future.backports.datetime, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named macresource - imported by MacOS, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named MacOS - imported by platform, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named _pybsddb - imported by bsddb, bsddb.db, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named bsddb3 - imported by bsddb, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named __pypy__ - imported by jinja2.debug, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named 'jinja2.debugrenderer' - imported by jinja2.debug, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named pretty - imported by jinja2.utils, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+invalid module named jinja2.asyncsupport - imported by jinja2, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named colorama - imported by click._compat, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named termcolor - imported by werkzeug.serving, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named OpenSSL - imported by werkzeug.serving, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named 'werkzeug.http.server' - imported by werkzeug.serving, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named 'OpenSSL.SSL' - imported by werkzeug.serving, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named watchdog - imported by werkzeug._reloader, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named 'watchdog.events' - imported by werkzeug._reloader, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named 'werkzeug.http.cookiejar' - imported by werkzeug.test, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named greenlet - imported by werkzeug.local, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named blinker - imported by flask.signals, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named 'urllib.request' - imported by werkzeug.http, werkzeug.test, werkzeug.debug.tbtools, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named 'urllib.parse' - imported by werkzeug.http, jinja2._compat, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named _thread.RLock - imported by _thread, pkg_resources._vendor.pyparsing
+missing module named _thread.get_ident - imported by _thread, future.backports.misc, werkzeug.local, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named reprlib.recursive_repr - imported by reprlib, future.backports.misc, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named rourl2path - imported by urllib, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named termios - imported by getpass, click.termui, tty, click._termui_impl, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named EasyDialogs - imported by getpass, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named _scproxy - imported by urllib, future.backports.urllib.request, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named 'test.support' - imported by future.moves.test.support, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named _dummy_threading - imported by dummy_threading, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named SOCKS - imported by ftplib, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named dbm - imported by future.standard_library, future.moves.dbm, whichdb, anydbm, future.moves.dbm.ndbm, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named 'dbm.dumb' - imported by future.moves.dbm.dumb, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named 'dbm.gnu' - imported by future.moves.dbm.gnu, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named gdbm - imported by anydbm, future.moves.dbm.gnu, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named 'dbm.ndbm' - imported by future.moves.dbm.ndbm, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named simplejson - imported by itsdangerous, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named grp - imported by shutil, tarfile, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named winreg.CloseKey - imported by winreg, platform, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named winreg.QueryValueEx - imported by winreg, platform, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named winreg.HKEY_LOCAL_MACHINE - imported by winreg, platform, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named winreg.OpenKeyEx - imported by winreg, platform, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named gestalt - imported by platform, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named java - imported by platform, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named 'java.lang' - imported by platform, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py, xml.sax._exceptions
+missing module named vms_lib - imported by platform, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named Carbon - imported by plistlib, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named 'Carbon.Files' - imported by plistlib, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named 'Carbon.File' - imported by plistlib, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named _xmlplus - imported by xml, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named _imp - imported by pkg_resources, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named pkg_resources.extern.six - imported by pkg_resources.extern, pkg_resources, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named 'pkg_resources.extern.six.moves' - imported by pkg_resources, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py, pkg_resources._vendor.packaging.requirements
+missing module named 'importlib.machinery' - imported by pkg_resources, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named pkg_resources.extern.appdirs - imported by pkg_resources.extern, pkg_resources, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named pkg_resources.extern.packaging - imported by pkg_resources.extern, pkg_resources, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named _sysconfigdata - imported by distutils.sysconfig, sysconfig, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named 'pkg_resources.extern.pyparsing' - imported by pkg_resources._vendor.packaging.requirements, pkg_resources._vendor.packaging.markers
+missing module named ordereddict - imported by pkg_resources._vendor.pyparsing
+missing module named 'com.sun' - imported by pkg_resources._vendor.appdirs
+missing module named com - imported by pkg_resources._vendor.appdirs
+missing module named 'collections.abc' - imported by dictdiffer._compat, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named numpy - imported by dictdiffer, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named cl - imported by aifc, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named os2 - imported by os, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named _emx_link - imported by os, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named ce - imported by os, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named riscos - imported by os, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named riscospath - imported by os, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named riscosenviron - imported by os, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named 'org.python' - imported by pickle, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py, xml.sax
+missing module named org - imported by copy, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named pwd - imported by posixpath, getpass, shutil, tarfile, distutils.util, webbrowser, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named readline - imported by cmd, pdb, code, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py
+missing module named fcntl - imported by tempfile, subprocess, click.termui, c:\Users\esiwegu\panBaiduCom\CloudStation\project2017\tool_7_parser_comparing\flaskHandler\run.py

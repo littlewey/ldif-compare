@@ -2,7 +2,6 @@
 <!-- <div class="container"> -->
 
 	<script src="static/js/dragdrop.min.js"></script>
-    <!-- 
     <script>
       window.remove = DragDrop('aFileForDrag', {
         onDrop: function (files, pos) {
@@ -19,7 +18,7 @@
         }
       })
     </script>
-    -->
+
     <div class="card hoverable">
       <div class="card-image waves-effect waves-block waves-light">
         <img class="activator" src="static/images/jeff-sheldon-3220-20percentage.jpg?removeCacheAttemptTime=3">
@@ -37,11 +36,11 @@
         <blockquote class="blue-grey-text text-lighten-3">
           The result will be a table showing differences, with columns as: Compare Result, dn, value of First File and value of Second File.
         </blockquote>
-
+          <!-- Progress Bar -->
           <div class="progress" id="progressBar" style="visibility: hidden">
-              <div class="indeterminate"> </div>
+              <div class="indeterminate"></div>
           </div>
-
+          <!-- Progress Bar -->
 
           <form action='/compare' method="post" enctype="multipart/form-data">
 
@@ -51,8 +50,8 @@
             </p>
 
             <div class="file-field">
-              <div class="btn blue-grey lighten-5">
-                <span class="blue-grey-text"><i class="material-icons blue-grey-text right">input</i> Select </span>
+              <div class="btn-large blue-grey lighten-5 pulse tooltipped" data-tooltip="Drag and Drop 1st File on this Box">
+                <span class="blue-grey-text"><i class="material-icons blue-grey-text right">input</i> Drag and Drop file Area </span>
                 <input name="aFile" type="file" id="aFileForDrag">
               </div>
               <div class="file-path-wrapper">
@@ -61,8 +60,8 @@
             </div>
 
             <div class="file-field">
-              <div class="btn blue-grey lighten-5">
-                <span class="blue-grey-text"><i class="material-icons blue-grey-text right">input</i> Select</span>
+              <div class="btn-large blue-grey lighten-5 pulse tooltipped" data-tooltip="Drag and Drop 2nd File on this Box">
+                <span class="blue-grey-text"><i class="material-icons blue-grey-text right">input</i> Drag and Drop file Area</span>
                 <input name="bFile" type="file" id="bFileForDrag">
               </div>
               <div class="file-path-wrapper">
@@ -70,7 +69,8 @@
               </div>
             </div>
 
-          <button class="btn waves-effect waves-light right blue-grey lighten-5 blue-grey-text" type="submit" name="action" onclick="$('#progressBar').css('visibility', 'visible'); $('#form').submit();" > 
+          <button class="btn waves-effect waves-light right blue-grey lighten-5 blue-grey-text" type="submit" name="action" onclick="$('#progressBar').css('visibility', 'visible');
+                                                                                                                                     $('#form').submit();"> 
             Compare<i class="material-icons blue-grey-text right">send</i>
           </button>
 
